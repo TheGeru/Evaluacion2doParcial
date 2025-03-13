@@ -1,0 +1,55 @@
+<div style="margin: 20px;">
+    <h1>Catalogo de hamburguesas</h1>
+    <h4>Alta de hamburguesas</h4>
+    <hr/>
+    <p></p>
+    <h4>Listado de hamburguesas</h4>
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+        </thead>
+        <tbody>
+            @for(hamburguesa of hamburguesas; track hamburguesa.id){
+                <tr>
+                    <td>{{hamburguesa.nombre}}</td>
+                    <td>{{hamburguesa.precio}}</td>
+                    <td>{{hamburguesa.descripcion}}</td>
+                    <td>
+                        <button type = "button" class="btn btn-success"
+                        (click)="selectHamburguesa(hamburguesa)">Seleccionar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="col-sm-4">
+        <p>
+            <label>Nombre de la hamburguesa</label>
+            <input type="text" class="form-control"[(ngModel)]="hamburguesa.nombre">
+
+            <label>Precio de la hamburguesa</label>
+            <input type="text" class="form-control"[(ngModel)]="hamburguesa.precio">
+
+            <label>Descripcion de la hamburguesa</label>
+            <input type="text" class="form-control"[(ngModel)]="hamburguesa.descripcion">
+        </p>
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary"
+                    (click)="insertarHamburguesa()">Insertar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning"
+                    (click)="updateHamburguesa()">Actualizar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger"
+                    (click)="deleteHamburguesa()">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
