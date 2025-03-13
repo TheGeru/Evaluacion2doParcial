@@ -3,6 +3,7 @@ import { hamburguesas } from '../../models/hamburguesas.model';
 import { ServicesService } from '../../services/services.service';
 import { FormsModule } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
+import { producto } from '../../models/producto.model';
 
 @Component({
   selector: 'app-ejercicio1erparcial',
@@ -25,7 +26,8 @@ export class Ejercicio1erparcialComponent {
 
   async insertarHamburguesa(){
     await this.serviceService.aggregarHamburguesa(this.hamburguesa);
-    this.getHamburguesa
+    this.getHamburguesa();
+    this.hamburguesa = new hamburguesas();
   }
 
   selectHamburguesa(hamburguesaSeleccionada: hamburguesas){
